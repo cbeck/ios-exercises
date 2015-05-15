@@ -29,20 +29,22 @@
 - (NSInteger) lowestNumberInArray:(NSArray *)arrayOfNumbers {
     /* WORK HERE */
     
-    //    NSMutableArray *numbers = [arrayOfNumbers mutableCopy];
-    //    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES];
-    //    [numbers sortUsingDescriptors:@[sortDescriptor]];
-
-    NSInteger lowest = NSIntegerMax;
-    for (NSNumber *number in arrayOfNumbers) {
-        NSInteger intValue = [number integerValue];
-        if (intValue < lowest) {
-            lowest = intValue;
-        }
-    }
+    NSMutableArray *numbers = [arrayOfNumbers mutableCopy];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:nil ascending:YES];
+    [numbers sortUsingDescriptors:@[sortDescriptor]];
+     NSNumber* lowest = [numbers firstObject];
+    return lowest.integerValue;
     
-    
-    return lowest;
+//    NSInteger lowest = NSIntegerMax;
+//    for (NSNumber *number in arrayOfNumbers) {
+//        NSInteger intValue = [number integerValue];
+//        if (intValue < lowest) {
+//            lowest = intValue;
+//        }
+//    }
+//    
+//    
+//    return lowest;
 }
 
 @end
