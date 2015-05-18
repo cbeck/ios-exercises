@@ -8,7 +8,7 @@ Strings
 
 func favoriteCheeseStringWithCheese(cheese: String) -> String {
     // WORK HERE
-    return cheese
+    return "My favorite cheese is " + cheese + "."
 }
 
 let fullSentence = favoriteCheeseStringWithCheese("cheddar")
@@ -23,10 +23,15 @@ Arrays & Dictionaries
 let numberArray = [1, 2, 3, 4]
 // Add 5 to this array
 // WORK HERE
+var mutableNumberArray = [1,2,3,4]
+mutableNumberArray.append(5)
 
 let numberDictionary = [1 : "one", 2 : "two", 3 : "three", 4 : "four"]
 // Add 5 : "five" to this dictionary
 // WORK HERE
+var mutableNumberDictionary = [1 : "one", 2 : "two", 3 : "three", 4 : "four"]
+mutableNumberDictionary[5] = "five"
+mutableNumberDictionary
 
 /*
 
@@ -36,9 +41,16 @@ Loops
 
 // Use a closed range loop to print 1 - 10, inclusively
 // WORK HERE
+for num in 1...10 {
+    println(num)
+}
 
 // Use a half-closed range loop to print 1 - 10, inclusively
 // WORK HERE
+for num in 1..<11 {
+    println(num)
+}
+
 
 let worf = [
     "name": "Worf",
@@ -58,7 +70,11 @@ let characters = [worf, picard]
 func favoriteDrinksArrayForCharacters(characters:Array<Dictionary<String, String>>) -> Array<String> {
     // return an array of favorite drinks, like ["prune juice", "tea, Earl Grey, hot"]
     // WORK HERE
-    return []
+    var drinksArray = [String]()
+    for char in characters {
+        drinksArray.append(char["favorite drink"]!)
+    }
+    return drinksArray
 }
 
 let favoriteDrinks = favoriteDrinksArrayForCharacters(characters)
@@ -76,8 +92,12 @@ Functions
 let strings = ["milk", "eggs", "bread", "challah"]
 
 // WORK HERE - make your function and pass `strings` in
+func arrayConverter(strings:[String]) -> NSString {
+    return ";".join(strings)
+}
 
 let expectedOutput = "milk;eggs;bread;challah"
+arrayConverter(strings)
 
 /*
 
@@ -89,3 +109,4 @@ let cerealArray = ["Golden Grahams", "Cheerios", "Trix", "Cap'n Crunch OOPS! All
 
 // Use a closure to sort this array alphabetically
 // WORK HERE
+let sortedArray = sorted(cerealArray, <)
